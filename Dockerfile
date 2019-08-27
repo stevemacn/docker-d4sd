@@ -1,6 +1,7 @@
-FROM node:8
+FROM node:12.2.0-alpine
 
 WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package*.json /app/
 
@@ -10,4 +11,4 @@ COPY . /app
 
 EXPOSE 3060
 
-CMD ["node","index.js"]
+CMD ["npm","start"]
